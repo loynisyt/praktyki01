@@ -1,0 +1,14 @@
+{
+  "name": "kuba",
+  "version": "1.0.0",
+  "description": "tu bedzie opis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "komendy"
+  ],
+  "author": "loynis",
+  "license": "ISC"
+}
