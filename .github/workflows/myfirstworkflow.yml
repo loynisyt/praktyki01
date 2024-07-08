@@ -30,6 +30,9 @@ jobs:
     - name: Build Docker image
       run: docker build --no-cache . -t lokalnie/apka:latest
 
+    - name: Check docker images
+      run: docker images
+
 
 
       
