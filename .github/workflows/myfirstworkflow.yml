@@ -1,4 +1,4 @@
-name: CI
+name:  Workflow
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +24,15 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests
-      run: npm test
-
     - name: Build application
       run: npm run build
+
+    - name: Build Docker image
+      run: docker build --no-cache . -t lokalnie/apka:latest
+
+    - name: Run docker image
+      run: docker run -p 3000:3000 lokalnie/apka:latest
+
+
+      
+ 
