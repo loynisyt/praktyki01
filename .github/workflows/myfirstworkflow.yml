@@ -28,7 +28,7 @@ jobs:
       run: npm run build
 
     - name: Build Docker image
-      run: docker build --no-cache . -t lokalnie/apka:latest
+      run: docker build --no-cache . 0loynis0/loynisrespository:apka
 
     - name: Check docker images
       run: docker images
@@ -40,7 +40,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
     - name: Push Docker image to Docker Hub
-      run: docker push 0loynis0/loynisrespository:tagname
+      run: docker push 0loynis0/loynisrespository:apka
 
       
  
