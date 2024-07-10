@@ -1,4 +1,4 @@
-name:  Workflow
+name: Workflow
 
 on:
   push:
@@ -27,20 +27,21 @@ jobs:
     - name: Build application
       run: npm run build
 
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
     - name: Build Docker image
-      run: docker build --no-cache . 0loynis0/loynisrespository:apka
+      run: docker build --no-cache . -t 0loynis0/loynisrespository:tagname
 
     - name: Check docker images
       run: docker images
 
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v2
-      with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-
     - name: Push Docker image to Docker Hub
-      run: docker push 0loynis0/loynisrespository:apka
+      run: docker push 0loynis0/loynisrespository:tagname
+
 
       
  
