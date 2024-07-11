@@ -34,13 +34,13 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
     - name: Build Docker image
-      run: docker build --no-cache . -t 0loynis0/loynisrespository:tagname
+      run: docker build --no-cache . -t 0loynis0/loynisrespository:latest
 
     - name: Check docker images
       run: docker images
 
     - name: Push Docker image to Docker Hub
-      run: docker push 0loynis0/loynisrespository:tagname
+      run: docker push 0loynis0/loynisrespository:latest
 
 
       
