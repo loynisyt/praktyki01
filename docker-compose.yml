@@ -1,6 +1,9 @@
 version: '3'
 services:
- web:
-  image: latest:latest
-  ports: 
-    - "80:80"
+  web:
+    image: 0loynis0/loynisrespository:latest
+    deploy:
+      replicas: 2
+    ports:
+      - "80-81:80"
+
